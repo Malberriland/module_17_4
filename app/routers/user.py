@@ -78,5 +78,5 @@ async def delete_user(db: Annotated[Session, Depends(get_db)], user_id: int):
 
     return {
         'status_code': status.HTTP_200_OK,
-        'transaction': 'User delete is Successful'
+        'transaction': 'User delete is successful'
         }
