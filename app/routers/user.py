@@ -49,7 +49,7 @@ async def update_user(db: Annotated[Session, Depends(get_db)], user_id: int, upd
     if user is None:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
-            detail='There is no user found'
+            detail='User was not found'
         )
 
     else:
@@ -70,7 +70,7 @@ async def delete_user(db: Annotated[Session, Depends(get_db)], user_id: int):
     if user is None:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
-            detail='there is no user found'
+            detail='User was not found'
         )
 
     db.execute(delete(User).where(User.id == user_id))
